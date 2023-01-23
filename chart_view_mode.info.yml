@@ -1,0 +1,10 @@
+name: Chart View Mode
+description: Allow users to set a Chart View Mode in Chart Content Type.
+package: Statistics
+
+type: module
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - drupal:charts
+libraries: -chart_view_mode/js
+  -chart_view_mode/css

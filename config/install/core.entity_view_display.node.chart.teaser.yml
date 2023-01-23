@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.chart.body
+    - field.field.node.chart.field_data_paragraph
+    - field.field.node.chart.field_data_type
+    - field.field.node.chart.field_graph_styles
+    - field.field.node.chart.field_sufix
+    - field.field.node.chart.field_type_of_graph
+    - node.type.chart
+  module:
+    - user
+id: node.chart.teaser
+targetEntityType: node
+bundle: chart
+mode: teaser
+content:
+  links:
+    settings: {}
+    third_party_settings: {}
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_data_paragraph: true
+  field_data_type: true
+  field_graph_styles: true
+  field_sufix: true
+  field_type_of_graph: true
