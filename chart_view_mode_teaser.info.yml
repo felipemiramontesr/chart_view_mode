@@ -1,0 +1,10 @@
+name: Chart View Mode Teaser
+description: Allow users to set a Chart View Mode Teaser in Chart Content Type.
+package: Statistics
+
+type: module
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - drupal:charts
+libraries: -chart_view_mode_teaser/js
+  -chart_view_mode_teaser/css

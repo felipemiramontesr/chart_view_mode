@@ -1,5 +1,23 @@
-<article id="chart" class="chart">
- <div id="header-chart" class="header-chart">Header</div>
- <div id="content-chart" class="content-chart">Content</div>
- <div id="footer-chart" class="footer-chart">Footer</div>   
-</article>
+{{ attach_library('chart_view_mode_teaser/chart_view_mode_teaser-styles') }}
+
+
+{% set conGraphStyles %}
+{{content.field_graph_styles}}
+{% endset %}
+
+<div id="node-chart" class="{{conGraphStyles|striptags}}">
+
+  <div id="header-teaser" class="header-teaser">
+    {{label}}
+  </div>
+
+  <div id="content-teaser" class="content-teaser">
+    <canvas id="{{node.id }}" class="node-chart-content-teaser"></canvas>
+  </div>
+
+
+
+  <div id="footer-teaser" class="footer-teaser">
+    {{content.body}}
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<?php 
+function chart_view_mode_teaser_theme($existing, $type, $theme, $path) {
+  return [
+    'node__chart__teaser' => [
+      'template' => 'node--chart--teaser',
+      'base hook' => 'node',
+    ],
+  ];
+}
+
+?>
