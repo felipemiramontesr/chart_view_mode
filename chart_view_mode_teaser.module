@@ -7,5 +7,4 @@ function chart_view_mode_teaser_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
-
 ?>

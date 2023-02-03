@@ -4,14 +4,14 @@
 {{content.field_graph_styles}}
 {% endset %}
 
-<div id="node-chart" class="{{conGraphStyles|striptags}}">
-  <div id="header-teaser" class="header-teaser">
-    {{label}}
-  </div>
-  <div id="content-teaser" class="content-teaser">
-    <canvas id="{{node.id }}" class="node-chart-content-teaser"></canvas>
-  </div>
-  <div id="footer-teaser" class="footer-teaser">
-    {{content.body}}
-  </div>
+<div id="node-chart" class="{{conGraphStyles|striptags|spaceless}}">
+	<div id="header-teaser" class="header-teaser">
+		{{label}}
+	</div>
+	<div id="content-teaser" class="content-teaser">
+		<canvas id="{{node.id }}" class="node-chart-content-teaser"></canvas>
+	</div>
+	<div id="footer-teaser" class="footer-teaser">
+		{{content.body}}
+	</div>
 </div>

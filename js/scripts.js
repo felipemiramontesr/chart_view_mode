@@ -1,4 +1,5 @@
-$(document).ready(function () {
+(function ($) {
+  //$(document).ready(function () {
   /* var elements = document.getElementsByClassName("node-chart-teaser");
 var ids = get_teaser_ids(elements);
 console.log("Element nid: " + elements[0].id);
@@ -8,7 +9,7 @@ generate(ids);*/
 
   let count = 0;
   while (count < charts.length) {
-    console.log("ID: " + charts[count].id);
+    //console.log("ID: " + charts[count].id);
     as(charts[count].id);
     count++;
   }
@@ -18,10 +19,10 @@ generate(ids);*/
    */
   function generate(ids) {
     let a = 0;
-    console.log("IDS length: " + ids.length);
+    //console.log("IDS length: " + ids.length);
     while (a < ids.length) {
-      console.log("Si te entra mija!");
-      console.log("Mira mija ID: " + ids[a]);
+      //console.log("Si te entra mija!");
+      //console.log("Mira mija ID: " + ids[a]);
       as(ids[a]);
       a++;
     }
@@ -29,7 +30,7 @@ generate(ids);*/
 
   function as(id) {
     //let uri = $(location).attr("href");
-    let uri = "http://localhost/treedff/web/";
+    let uri = get_domain();
     let nid = id;
     let axisX = [];
     let axisY = [];
@@ -38,8 +39,8 @@ generate(ids);*/
       try {
         let chartResponse = await fetch(uri + "node/" + nid + "?_format=json");
         let chartData = await chartResponse.json();
-        console.log(chartData);
-        console.log(chartData.title[0].value);
+        //console.log(chartData);
+        //console.log(chartData.title[0].value);
 
         let numberOfPairs = Object.keys(chartData.field_data_paragraph).length;
         let j = 0;
@@ -56,8 +57,8 @@ generate(ids);*/
           axisX.push(pairData.field_axis_x[0].value);
           axisY.push(pairData.field_axis_y[0].value);
 
-          console.log("New Axis X Pushed into arr: " + axisX);
-          console.log("New Axis Y Pushed into arr: " + axisY);
+          //console.log("New Axis X Pushed into arr: " + axisX);
+          //console.log("New Axis Y Pushed into arr: " + axisY);
           j++;
         }
 
@@ -73,7 +74,7 @@ generate(ids);*/
     let id = nid;
     let type = data.field_type_of_graph[0].value;
 
-    console.log(type);
+    //console.log(type);
 
     if (type == "pie" || type == "doughnut" || type == "polarArea") {
       let colors = get_colors(style);
@@ -175,10 +176,18 @@ generate(ids);*/
     while (x < elements.length) {
       const regex = /node-chart-teaser-/i;
       ids.push(elements[x].id.replace(regex, ""));
-      console.log("IDS :" + ids);
+      //console.log("IDS :" + ids);
       x++;
     }
     return ids;
+  }
+  function get_domain() {
+    let domain = window.location.hostname;
+    let projectDirectory = "/treedff/web/"; // "" - no spaces for projects in root directory
+    let http = "http://"; // "https://" - for SSL sites
+    console.log("Domain: " + http + domain + projectDirectory);
+    let url = http + domain + projectDirectory;
+    return url;
   }
 
   function get_colors(style) {
@@ -214,4 +223,5 @@ generate(ids);*/
       default:
     }
   }
-});
+  //});
+})(jQuery);
